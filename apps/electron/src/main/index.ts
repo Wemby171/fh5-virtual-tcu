@@ -407,10 +407,18 @@ function registerIpc() {
 /**
  * Auto-update is opt-in in this Forza Horizon 5 build.
  *
- * The upstream feed (`Wemby171/fh5-virtual-tcu`) publishes the **Horizon 6**
- * build, so letting it run would silently replace this FH5 build on the next
- * launch. Set `TCU_ALLOW_AUTO_UPDATE=1` only after pointing the feed below at a
- * release repository that actually ships this build.
+ * Two reasons for the default-off switch:
+ *
+ * 1. The upstream project (`Forza-Love/fh6-virtual_tcu`) publishes the **Horizon
+ *    6** build from its own release tags. Anyone who points this feed back at
+ *    upstream and enables updates would silently get the FH6 build installed
+ *    over this one.
+ * 2. This fork has published no releases yet, so there is nothing to update to.
+ *
+ * The feed below therefore points at this fork's own repository. If you do
+ * publish FH5 release tags here, add the matching `latest.yml`
+ * (electron-builder does this for you) and only then set
+ * `TCU_ALLOW_AUTO_UPDATE=1`.
  */
 function isAutoUpdateEnabled(): boolean {
   return process.env.TCU_ALLOW_AUTO_UPDATE === '1'
