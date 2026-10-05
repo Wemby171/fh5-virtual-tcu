@@ -23,6 +23,9 @@ _capture_fh5_packet.txt
 _electron_run*.txt
 _electron_run*.txt.err
 _smoke_*.txt
+
+# Scratch directory for one-off diagnostic scripts
+/_probe/
 *.egg
 pip-wheel-metadata/
 .pytest_cache/

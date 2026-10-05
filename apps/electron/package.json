@@ -3,7 +3,7 @@
   "productName": "VirtualTCU",
   "version": "13.2.9",
   "private": true,
-  "description": "External adaptive transmission controller for Forza Horizon 5 â€?Electron shell",
+  "description": "External adaptive transmission controller for Forza Horizon 5 - Electron shell",
   "author": "Virtual TCU",
   "license": "MIT",
   "repository": {
