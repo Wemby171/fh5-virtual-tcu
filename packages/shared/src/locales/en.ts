@@ -230,10 +230,13 @@ export default {
       driveStyle: 'Comfort mode auto-switches between cruise and sport driving.',
     },
     launchRpm: 'Target RPM',
-    comfortUpWot: 'Upshift WOT',
-    dynamicUpWot: 'Upshift WOT',
-    raceUpWot: 'Upshift WOT',
-    offroadUpWot: 'Upshift WOT (hold gear)',
+    // Each mode's WOT upshift slider needs its own label: the four controls are
+    // otherwise indistinguishable (they previously all read "Upshift WOT"),
+    // which made them impossible to tell apart when searching or skimming.
+    comfortUpWot: 'Comfort · upshift WOT',
+    dynamicUpWot: 'Sport curve · upshift WOT',
+    raceUpWot: 'Race · upshift WOT',
+    offroadUpWot: 'Offroad · upshift WOT (hold gear)',
     offroadDownRpm: 'Torque downshift RPM',
     brakeThr: 'Brake threshold',
     corneringYaw: 'Cornering yaw (×0.01)',

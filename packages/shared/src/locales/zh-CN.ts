@@ -228,10 +228,12 @@ export default {
       driveStyle: '日常模式根据驾驶激烈程度在巡航/运动间自动切换。',
     },
     launchRpm: '目标转速',
-    comfortUpWot: '全油门升档',
-    dynamicUpWot: '全油门升档',
-    raceUpWot: '全油门升档',
-    offroadUpWot: '全油门升档（保持）',
+    // 四个模式的"全油门升档"必须各自标明模式名，否则标签完全相同、
+    // 搜索或速览时无法区分是哪一个模式的参数。
+    comfortUpWot: '日常 · 全油门升档',
+    dynamicUpWot: '运动曲线 · 全油门升档',
+    raceUpWot: '赛道 · 全油门升档',
+    offroadUpWot: '越野 · 全油门升档（保持）',
     offroadDownRpm: '扭矩降档转速',
     brakeThr: '刹车阈值',
     corneringYaw: '弯道横摆 (×0.01)',
