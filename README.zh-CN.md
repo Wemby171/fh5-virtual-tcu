@@ -21,7 +21,7 @@
 
 <br>
 
-[![FH6](https://img.shields.io/badge/游戏-地平线%206-E10600?logo=xbox&logoColor=white)](#forza-horizon-6-游戏内设置首次配置)
+[![FH5](https://img.shields.io/badge/游戏-地平线%206-E10600?logo=xbox&logoColor=white)](#forza-horizon-5-游戏内设置首次配置)
 [![i18n](https://img.shields.io/badge/i18n-en%20%7C%20zh--CN-22c55e)](apps/dashboard/)
 [![output](https://img.shields.io/badge/输出-键盘%20%7C%20vJoy-64748b)](#3-vjoy-模式可选)
 
@@ -29,9 +29,18 @@
 
 </div>
 
-> 本项目核心功能源码由 **Insightful** 提供，面向 [**Forza Mods**](https://discord.gg/forzamods) Discord 社区用户。
+> **社区 FH5 适配版.** 本项目基于
+> [**Forza-Love/fh6-virtual_tcu**](https://github.com/Forza-Love/fh6-virtual_tcu)
+> 改造，原项目面向《极限竞速：地平线 **6**》，本项目将其适配到《极限竞速：地平线 **5**》。
+>
+> 原项目核心功能源码由 **Insightful** 提供，面向 [**Forza Mods**](https://discord.gg/forzamods) Discord 社区用户。
+> 原始实现归其所有 —— 本项目仅新增对地平线 5 的适配。
+>
+> 采用 **AGPL-3.0** 许可（见 [LICENSE](LICENSE)），原始许可证按该许可要求原样保留。
+>
+> **与原作者、Turn 10、Playground Games 及 Microsoft 均无关联，也未获其背书。使用风险自负。**
 
-面向《极限竞速：地平线 6》的外部自适应变速箱控制器。通过 UDP 读取游戏遥测，根据驾驶风格、油门、转速、车速与刹车等信号自动换挡，并向游戏注入换挡指令 — **键盘按键**（E/Q）或**虚拟 vJoy 按钮**（DirectInput）。
+面向《极限竞速：地平线 5》的外部自适应变速箱控制器。通过 UDP 读取游戏遥测，根据驾驶风格、油门、转速、车速与刹车等信号自动换挡，并向游戏注入换挡指令 — **键盘按键**（E/Q）或**虚拟 vJoy 按钮**（DirectInput）。
 
 **v13** 提供 Windows 托盘桌面应用（Electron），含浮动 HUD 与自动更新；实时遥测仪表盘在浏览器 **http://127.0.0.1:8765** 打开（支持 English / 简体中文）。仍提供纯 Python 便携版，适合不需要 Electron 的用户。
 
@@ -45,8 +54,8 @@
 
 ```mermaid
 flowchart LR
-  FH6["极限竞速：地平线 6"] -->|"UDP :5555"| TCU["Virtual TCU\n(Python)"]
-  TCU -->|"E/Q 或 vJoy"| FH6
+  FH5["极限竞速：地平线 5"] -->|"UDP :5555"| TCU["Virtual TCU\n(Python)"]
+  TCU -->|"E/Q 或 vJoy"| FH5
   TCU -->|"WS :8765"| UI["仪表盘 / HUD\n(Vue + Electron)"]
 ```
 
@@ -101,13 +110,13 @@ flowchart LR
 
 默认情况下，TCU 注入键盘按键（**E** 升挡 / **Q** 降挡）。键盘注入对键盘、手柄、方向盘玩家都适用——离散按键不会覆盖你的模拟转向/油门。
 
-如果你偏好虚拟 DirectInput 设备（方向盘用户尤其推荐，vJoy 换挡不会打断力反馈），可在 **设置 → Extras → 输出模式** 切换到 vJoy 模式。需安装 **[vJoy](https://github.com/BrunnerInnovation/vJoy/releases) 驱动** 并启用 1 号设备，同时在 FH6 中绑定对应的挡位/顺序换挡按钮。
+如果你偏好虚拟 DirectInput 设备（方向盘用户尤其推荐，vJoy 换挡不会打断力反馈），可在 **设置 → Extras → 输出模式** 切换到 vJoy 模式。需安装 **[vJoy](https://github.com/BrunnerInnovation/vJoy/releases) 驱动** 并启用 1 号设备，同时在 FH5 中绑定对应的挡位/顺序换挡按钮。
 
 > 旧版本曾有「虚拟 XInput 手柄」输出模式，现已**移除**：作为第二个 XInput 设备，它每次换挡都发送整包手柄状态，把玩家的转向/油门打回中立，导致转弯发卡不跟手。请改用键盘（默认）或 vJoy。
 
 ### 4. 进游戏
 
-按下方 [游戏内设置](#forza-horizon-6-游戏内设置首次配置) 配置 FH6，然后：
+按下方 [游戏内设置](#forza-horizon-5-游戏内设置首次配置) 配置 FH5，然后：
 
 1. 打开 **设置** → 选择驾驶模式并按需调整；
 2. 托盘 → **在浏览器中打开仪表盘**（或设置 **概览** 标签页中的按钮）查看实时数据；
@@ -190,7 +199,7 @@ VirtualTCU/
 
 **Electron 用户：** 在 **设置窗口** 中开始 / 停止录制（概览或侧边栏控件）。
 
-**backend-only 用户：** 在 Web 界面侧边栏点 **开始记录（事件）** 或 **开始记录（全部）**，在 FH6 比赛中驾驶，完成后点 **停止**。
+**backend-only 用户：** 在 Web 界面侧边栏点 **开始记录（事件）** 或 **开始记录（全部）**，在 FH5 比赛中驾驶，完成后点 **停止**。
 
 | 模式 | 说明 |
 |------|------|
@@ -249,7 +258,7 @@ python -m virtual_tcu
 
 （`python virtual_tcu.py` 亦可。）
 
-浏览器打开 **http://127.0.0.1:8765**，进 FH6 比赛。终端里 **`Ctrl + C`** 退出。
+浏览器打开 **http://127.0.0.1:8765**，进 FH5 比赛。终端里 **`Ctrl + C`** 退出。
 
 ### 源码运行的数据位置
 
@@ -354,7 +363,7 @@ cd apps/electron && pnpm install && pnpm package
 | 端口 | `5555` |
 | 数据包格式 | **Car Dash**（324 字节） |
 
-> 若在 Virtual TCU 网络设置中修改 UDP 端口，请同步修改 FH6 中的端口。
+> 若在 Virtual TCU 网络设置中修改 UDP 端口，请同步修改 FH5 中的端口。
 
 ---
 
@@ -397,7 +406,7 @@ cd apps/electron && pnpm install && pnpm package
 |--------|--------|------|
 | Web 绑定地址 | `127.0.0.1` | 设为 `0.0.0.0` 可允许局域网内其他设备访问 |
 | Web 端口 | `8765` | 仪表盘 HTTP / WebSocket 端口 |
-| UDP 端口 | `5555` | 须与 FH6 Data Out 端口一致 |
+| UDP 端口 | `5555` | 须与 FH5 Data Out 端口一致 |
 
 点击 **Apply（应用）** 保存。后端会热重载绑定；若 Web 端口变更，请按设置窗口显示的新 URL 重新打开仪表盘。
 
@@ -462,7 +471,7 @@ virtualTCU/
 
 ### 档位/车速异常
 
-- 仅支持 FH6 **324 字节 Car Dash** 包。
+- 仅支持 FH5 **324 字节 Car Dash** 包。
 
 ### 自动更新无反应
 
@@ -472,14 +481,14 @@ virtualTCU/
 ### vJoy 模式不工作
 
 - 安装 **[vJoy](https://github.com/BrunnerInnovation/vJoy/releases) 驱动** → 重启 Windows → 启用 1 号设备。
-- 在 FH6 中绑定挡位/顺序换挡按钮，与设置 → Extras 中配置的 vJoy 按钮一致。
+- 在 FH5 中绑定挡位/顺序换挡按钮，与设置 → Extras 中配置的 vJoy 按钮一致。
 - 如不想安装 vJoy，在设置 → Extras 中将输出模式切换回**键盘**（键盘对手柄和方向盘同样适用）。
 
 ---
 
 ## 说明
 
-- 任意 FH6 车辆可用，换挡点从遥测自动校准。
+- 任意 FH5 车辆可用，换挡点从遥测自动校准。
 - **倒档保护**、**低速保护**（约 12 km/h 以下不自动换挡）。
 - 仅发送 **E/Q** 键盘事件。
 
@@ -487,6 +496,6 @@ virtualTCU/
 
 ## 测试环境
 
-- Windows 11 · Steam 版 FH6 · Xbox Elite Series 2
+- Windows 11 · Steam 版 FH5 · Xbox Elite Series 2
 
-遥测基于 FH6 **324 字节 Car Dash** 数据包（实车诊断验证）。
+遥测基于 FH5 **324 字节 Car Dash** 数据包（实车诊断验证）。

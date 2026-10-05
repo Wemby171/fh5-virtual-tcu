@@ -1,16 +1,20 @@
 # Virtual TCU — Forza Horizon 5
 
-> **Community FH5 adaptation.** This is a fork of
-> [**Wemby171/fh5-virtual-tcu**](https://github.com/Wemby171/fh5-virtual-tcu),
-> which targets Forza Horizon **6**. That project's core functionality is
-> provided by **Insightful**, maintained for the
-> [**Forza Mods**](https://discord.gg/forzamods) Discord community. All credit
-> for the original implementation goes to them; this fork only adapts it to
-> Horizon 5.
+> **Community FH5 adaptation.** 本项目基于
+> [**Forza-Love/fh6-virtual_tcu**](https://github.com/Forza-Love/fh6-virtual_tcu)
+> 改造，原项目面向《极限竞速：地平线 **6**》，本项目将其适配到《极限竞速：地平线 **5**》。
+> This is a **Forza Horizon 5** adaptation of that Horizon **6** project.
 >
+> 原项目核心功能源码由 **Insightful** 提供，面向
+> [**Forza Mods**](https://discord.gg/forzamods) Discord 社区。
+> The original implementation is theirs — all credit for it goes to them; this
+> fork only adds Horizon 5 support.
+>
+> 采用 **AGPL-3.0** 许可（见 [LICENSE](LICENSE)），原始许可证按该许可要求原样保留。
 > Licensed under **AGPL-3.0** (see [LICENSE](LICENSE)) — the original license is
 > kept unchanged, as that license requires.
 >
+> **与原作者、Turn 10、Playground Games 及 Microsoft 均无关联，也未获其背书。使用风险自负。**
 > **Not affiliated with or endorsed by the upstream authors, Turn 10, Playground
 > Games or Microsoft.** Use at your own risk.
 
