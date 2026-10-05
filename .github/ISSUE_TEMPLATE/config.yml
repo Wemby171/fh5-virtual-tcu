@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Releases / 发布页
+    url: https://github.com/Wemby171/fh5-virtual-tcu/releases
+    about: Download the latest Windows build. / 下载最新 Windows 版本。
+  - name: Documentation / 文档
+    url: https://github.com/Wemby171/fh5-virtual-tcu/blob/main/README.md
+    about: Setup, architecture, and development guide. / 安装、架构与开发说明。
